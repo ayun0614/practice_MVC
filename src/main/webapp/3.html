@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	body{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+	}
+	.testimonial-pic img{
+		width:100px;
+		filter:grayscale(1); /*컬러 이미지를 흑백으로 변경*/
+		cursor:pointer;
+		transition:0.5s;
+	
+	}
+	.testimonial-pic img.act{
+		border-radius:50%;
+		filter:none;
+	}
+	.testimonial .content{
+		display:none;
+	}
+	.testimonial .content.act{
+		display:block;
+	}
+
+</style>
+</head>
+<body>
+ <div class="testimonial-section">
+    <h1><span></span></h1>
+    <div class="testimonial-pic">
+    	<img src="images/1.jpg" data-alt="test1">
+    	<img src="images/2.jpg" data-alt="test2">
+    	<img src="images/3.jpg" data-alt="test3">
+    </div>
+    <div class="testimonial">
+      <div class="content" id="test1">
+        <p>
+        	Developer
+        </p>
+        <p>Hong gil dong</p>
+      </div>
+      <div class="content" id="test2">
+        <p>
+        	Student
+        </p>
+        <p>Kim gil dong</p>
+      </div>
+      <div class="content" id="test3">
+        <p>Programmer</p>
+        <p>Park gil dong</p>
+      </div>
+    </div>
+  </div>
+  
+  	<script>
+  		$('.testimonial-pic img').click(function(){
+  			$(this).addClass('act');
+  			$(this).siblings().removeClass('act');
+  			
+  			$('.testimonial .content').removeClass('act');
+  			$('#'+$(this).attr('data-alt')).addClass('act');
+  			
+  		})
+  	</script>
+  
+  
+  
+</body>
+</html>
